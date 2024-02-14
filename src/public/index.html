@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Password Manager</title>
+  </head>
+  <body>
+    <div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-primary" id="select-new-vault">New</button>
+        <button type="button" class="btn btn-primary" id="select-load-vault">Load</button>
+      </div>
+
+      <form action="#" id="load-vault-form">
+        <div class="mb-3">
+          <label class="form-label">Vault file path</label>
+          <input type="file" class="form-control" id="load-vault-path" accept=".vault">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Vault key</label>
+          <input type="text" class="form-control" id="load-vault-key">
+        </div>
+        <button type="submit" class="btn btn-primary">Load</button>
+      </form>
+
+      <form action="#" id="new-vault-form">
+        <div class="mb-3">
+          <label class="form-label">Vault name</label>
+          <input type="text" class="form-control" id="new-vault-name">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Vault key</label>
+          <input type="text" class="form-control" id="new-vault-key">
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form>
+
+      <ul id="vault-items"></ul>
+
+      <form action="#" id="add-password-form">
+        <input type="text" class="form-control" id="add-new-username" placeholder="new username">
+        <input type="text" class="form-control" id="add-new-password" placeholder="new password">
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+    </div>
+
+    <script src="../dist/renderers/main-renderer.js"></script>
+  </body>
+</html>
